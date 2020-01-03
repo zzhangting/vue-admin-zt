@@ -21,8 +21,11 @@
             </el-table-column>
         </el-table>
             <el-pagination layout="prev,pager,next" :total="50"></el-pagination>
-            <el-dialog :title="title" :version.sync="visible" width="60%">
-                ---{{form}}
+                    <el-dialog
+             :title="title"
+             :visible.sync="visible"
+              width="60%">
+               ---{{form}}
                 <el-form :model="form" label-width="80px">
                   <el-form-item label="名称">
                       <el-input v-model="form.user"></el-input>
@@ -52,6 +55,7 @@
                       <el-input v-model=form.photo></el-input>
                   </el-form-item>
                 </el-form>
+
  <span slot="footer" class="dialog-footer">
     <el-button size="small" @click="closeModalHandler">取 消</el-button> 
     <el-button size="small" type="primary" @click="submitHandler">确 定</el-button>
