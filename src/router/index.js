@@ -105,12 +105,26 @@ export const constantRoutes = [
     ]
   },
   {
-    path: 'external-link',
+    path: '/order',
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'List',
+        name: 'OrderList',//name不可重复
+        component: () => import('@/pages/order/List'),//箭头函数的this，指向外部函数的this
+        meta: { title: '订单管理', icon: 'example' }
+      }
+    ]
+  },
+  {
+    path: '/address',
+    component: Layout,
+    children: [
+      {
+        path: 'List',
+        name: 'AddressList',//name不可重复
+        component: () => import('@/pages/address/List'),//箭头函数的this，指向外部函数的this
+        meta: { title: '地址管理', icon: 'example' }
       }
     ]
   },
