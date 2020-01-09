@@ -1,5 +1,4 @@
 <template>
-
 <div>
     <!--按钮-->
     <el-button type="success" size="small" @click="toAddHandler">添加</el-button>
@@ -12,7 +11,7 @@
             <el-table-column prop="price" label="价格"></el-table-column>
             <el-table-column width="200px" prop="description" label="描述"></el-table-column>
             <el-table-column prop="categoryId" label="所属产品"></el-table-column>
-            <el-table-column width="650ox" prop="photo" label="照片"></el-table-column>
+            <el-table-column width="650px" prop="photo" label="照片"></el-table-column>
             <el-table-column label="操作">
                 <template v-slot="slot">
                     <a href="" @click.prevent="toDeleteHandler(slot.row.id)">删除</a>
@@ -54,10 +53,10 @@
     <el-form-item label="图片">
          <el-upload
             class="upload-demo"
+            action="http://134.175.154.93:6677/file/upload"
             :file-list="fileList"
-            list-type="picture"
             :on-success="uploadSuccessHandler"
-            action="http://134.175.154.93:6677/file/upload">
+            list-type="picture">
             <el-button size="small" type="primary">点击上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
@@ -82,7 +81,7 @@ export default {
         //加载栏目信息
         uploadSuccessHandler(response){
             //上传事件处理函数
-            let photo="http://134.175.154.93:8888/group1"
+            let photo="http://134.175.154.93:8888/group1/"+response.data.id
             +response.data.id
             //将图片地址设置到form中，便于提价给后台
             this.form.photo=photo;
@@ -101,16 +100,16 @@ export default {
       },
         loadCategory(){
             let url = "http://localhost:6677/category/findAll"
-      request.get(url).then((response)=>{
+            request.get(url).then((response)=>{
         // 将查询结果设置到customers中，this指向外部函数的this
         this.options = response.data;
       })
     },
         loadData(){
             let url = "http://localhost:6677/product/findAll"
-      request.get(url).then((response)=>{
-        // 将查询结果设置到customers中，this指向外部函数的this
-        this.products = response.data;
+            request.get(url).then((response)=>{
+            // 将查询结果设置到customers中，this指向外部函数的this
+           this.products = response.data;
       })
     },
         //通过request与后台进行交互，并且携带参数
@@ -162,7 +161,7 @@ export default {
         }) 
         },
         toUpdateHandler(row){
-            this.filelist=[];
+            this.fileList=[]
             this.form=row;
             this.visible=true;
         },
@@ -175,7 +174,7 @@ export default {
                  type:"product"
              }
            this.visible=true;
-           this.filelist=[];
+           this.fileList=[];
         }
     },
     //用于存放要向网页中显示的数据
@@ -184,7 +183,7 @@ export default {
             visible:false,
             products:[],
             options:[],
-            filelist:[],
+            fileList:[],
             form:{
                 type:"product"
             } 
