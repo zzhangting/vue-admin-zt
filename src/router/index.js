@@ -105,7 +105,6 @@ export const constantRoutes = [
     ]
   },
   {
-<<<<<<< HEAD
     path: '/commit',
     component: Layout,
     children: [
@@ -143,9 +142,6 @@ export const constantRoutes = [
   },
   {
     path: 'external-link',
-=======
-    path: '/order',
->>>>>>> 691d68b6df817a814be7b92355123091987c037b
     component: Layout,
     children: [
       {

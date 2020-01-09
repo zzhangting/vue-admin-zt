@@ -22,9 +22,9 @@
       <el-table-column prop="waiterId" label="员工ID"></el-table-column>
       <el-table-column prop="addressId" label="地址ID"></el-table-column>
       <el-table-column fixed="right" label="操作">
-        <template v-slot="slot">
+        <template v-slot="slot"><div>
           <a href="javascript:void(0)">详情</a>
-          <a href="" v-if="slot.row.status === '待派单'" @click.prevent="toSendOrderHandler(slot.row)">派单</a>
+          <a href="" v-if="slot.row.status ==='待派单'" @click.prevent="toSendOrderHandler(slot.row)">派单</a></div>
         </template>
       </el-table-column>
     </el-table>
@@ -164,10 +164,3 @@ export default {
 <style scoped>
  
 </style>
-=======
-<template>
-    <div>
-        订单管理
-    </div>
-</template>
->>>>>>> 691d68b6df817a814be7b92355123091987c037b
