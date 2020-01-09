@@ -1,5 +1,6 @@
 <template>
     <div>
+<<<<<<< HEAD
         <!--按钮-->
         <el-button type="success" size="small" @click="toAddHandler">
             添加
@@ -157,3 +158,8 @@ export default {
 <style scoped>
 
 </style>
+=======
+        地址管理
+    </div>
+</template>
+>>>>>>> 691d68b6df817a814be7b92355123091987c037b
